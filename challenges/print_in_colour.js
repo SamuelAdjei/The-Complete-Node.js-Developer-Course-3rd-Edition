@@ -15,7 +15,7 @@ const getNotes = require('./notes.js');
 const notes = getNotes();
 console.log(notes);
 
-console.log(chalk.green.bold("Success!"));
+console.log(chalk.green.bold.inverse("Success!"));
 
-
+console.log(process.argv[2]);
 

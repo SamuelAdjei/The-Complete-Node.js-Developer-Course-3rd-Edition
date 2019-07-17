@@ -14,3 +14,7 @@ fs.appendFileSync('notes.txt', ' The umbrella is up.', 'utf8'); //appends file t
 // 3. Check your work by opening the file and viewing the appended text
 
 
+// const x = require('./utils.js') //used to load a file in the same folder
+// //create and use the variable name which is being pulled from utils.js
+// const sum = x(4, -3);
+// console.log(sum);

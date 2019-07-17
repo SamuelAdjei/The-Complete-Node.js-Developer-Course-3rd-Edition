@@ -1,19 +1,57 @@
-
-// Challenge : Define and use a function in  new file 
-
-// 1. Create a new file called notes.js
-// 2. Create getNotes functions that returns "Your notes..."
-// 3. Export getNotes function 
-//  4. From app.js, load in and call the function printing message to console
-
-const validator = require('validator');
-
+const chalk = require('chalk');
+const yargs = require('yargs');
 const getNotes = require('./notes.js');
-const notes = getNotes();
-console.log(notes);
 
-console.log(validator.isURL('https://samuel.io'))
-console.log(validator.isEmail('samuel@example.com'))
+// customise yargs version 
+yargs.version('1.1.0');
+
+//Create add command 
+yargs.command({
+    command: "add",
+    describe: "Add a new note",
+    builder: {
+        title: {
+            describe: "Note title",
+            demandOption: true, //makes the arguments mandatory
+            type: "string" // ensures that title is always a string
+        }
+    },
+    handler: function (argv) {
+        console.log("Title: " + argv.title)
+    }
+})
 
 
+// Create remove command
+yargs.command({
+    command: "remove",
+    describe: "Remove a note",
+    handler : function () {
+        console.log("Removing the note!")
+    }
+})
 
+// Create list command
+yargs.command({
+    command: "list",
+    describe: "Show me a list",
+    handler : function () {
+        console.log("Listing out all notes")
+    }
+})
+
+// Create read command
+
+yargs.command ({
+    command: "read", 
+    describe: "Read the notes",
+    handler : function () {
+        console.log("Reading notes!!")
+    }
+})
+
+
+// add, remove, read, list
+
+yargs.parse()
+// console.log(yargs.argv);
